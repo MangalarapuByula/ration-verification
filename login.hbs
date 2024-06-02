@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="container">
+        <img src="https://play-lh.googleusercontent.com/gGXblbutViFQGrM1xdhOqoX05oyFzxkRo3WY4oXWEBU1Arsl_iLQ5TrBcPuTZ17AUds" alt="Girl in a jacket">
+        <br>
+        <br>
+        <h2 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Ration Verification</h2>
+        <br>
+        <h2 style=" padding-top: 20px;">Login form</h2>
+        <form action="/login" method="post">
+            <input placeholder="Name" name="name" type="text">
+            <input placeholder="Password" name="password" type="password">
+            <input class="sub" type="submit" value="Login">
+<input class="mer" type="merchant" value="Merchant Login" onclick="redirectToMerchantLogin()">
+            <h3>Don't have an account?</h3>
+            <a href="/signup">Create a new account</a>
+        </form>
+    </div>
+    <script>
+        function redirectToMerchantLogin() {
+    window.location.href = "/merchant_login";
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Details</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Your Details</h1>
+        <form action="/details" method="POST">
+            <input type="hidden" name="name" value="{{userName}}" required>
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" id="firstName" required><br><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" id="lastName" required><br><br>
+
+            <label for="Dateof month">Date of Birth:</label>
+            <input type="date" name="dateOfBirth" id="dateOfBirth" required><br><br>
+
+            <label for="aadhaarNumber">Aadhaar Number:</label>
+            <input type="text" name="aadhaarNumber" id="aadhaarNumber" required><br><br>
+
+            <label for="address">Address:</label>
+            <textarea name="address" id="address" required></textarea><br><br>
+
+            <!-- Spouse Details -->
+            <h2>Spouse Details</h2>
+            <label for="spouseName">Spouse Name:</label>
+            <input type="text" name="spouseName" id="spouseName"><br><br>
+
+            <label for="spouseAadhaarNumber">Spouse Aadhaar Number:</label>
+            <input type="text" name="spouseAadhaarNumber" id="spouseAadhaarNumber"><br><br>
+
+            <!-- Children Details -->
+            <h2>Children Details</h2>
+            <label for="numberOfChildren">Number of Children:</label>
+            <input type="number" name="numberOfChildren" id="numberOfChildren" min="0" max="10"><br><br>
+
+            <div id="childrenDetails"></div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('numberOfChildren').addEventListener('input', function() {
+            var numberOfChildren = parseInt(this.value);
+            var childrenDetailsContainer = document.getElementById('childrenDetails');
+            childrenDetailsContainer.innerHTML = '';
+
+            for (var i = 1; i <= numberOfChildren; i++) {
+                var childDetails = document.createElement('div');
+                childDetails.innerHTML = `
+                    <h3>Child ${i} Details</h3>
+                    <label for="childName${i}">Name:</label>
+                    <input type="text" name="childName${i}" id="childName${i}" required><br><br>
+
+                    <label for="childAge${i}">Age:</label>
+                    <input type="number" name="childAge${i}" id="childAge${i}" min="0" max="18" required><br><br>
+
+                    <label for="childAadhaarNumber${i}">Aadhaar Number:</label>
+                    <input type="text" name="childAadhaarNumber${i}" id="childAadhaarNumber${i}" required><br><br>
+                `;
+                childrenDetailsContainer.appendChild(childDetails);
+            }
+        });
+    </script>
+</body>
+</html>
